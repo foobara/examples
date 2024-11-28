@@ -1,0 +1,8 @@
+> fumiko = Capybara.new(name: "Fumiko", nickname: "foo", age: 100)
+==> #<Capybara:0x00007fa27913d6e8 @attributes={:name=>"Fumiko", :nickname=>"foo", :age=>100}, @mutable=true>
+> fumiko.name
+==> "Fumiko"
+> fumiko.age
+==> 100
+
+

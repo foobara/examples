@@ -1,0 +1,4 @@
+> IntegerMath.foobara_command_classes
+==> [IntegerMath::Add]
+> IntegerMath.foobara_lookup(:Add)
+==> IntegerMath::Add

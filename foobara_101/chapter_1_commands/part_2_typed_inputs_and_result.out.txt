@@ -1,0 +1,40 @@
+> command = Add.new(operand1: 2, operand2: 5)
+==> #<Add:0xad20 @raw_inputs={:operand1=>2, :operand2=>5}, @error_collectio...
+> outcome = command.run
+==> #<Foobara::Outcome:0x00007fd9e60a3800...
+> outcome.success?
+==> true
+> outcome.result
+==> 7
+
+
+
+> outcome = Add.run(operand1: 2, operand2: 5)
+==> #<Foobara::Outcome:0x00007ffbcc641318...
+> outcome.success?
+==> true
+> outcome.result
+==> 7
+
+
+
+> Add.run!(operand1: 2, operand2: 5)
+==> 7
+
+
+
+> outcome = Add.run(operand1: "foo", operand2: 5)
+==> #<Foobara::Outcome:0x00007ffbcc60aea8...
+> outcome.success?
+==> false
+> puts outcome.errors_sentence
+At operand1: Cannot cast "foo" to an integer. Expected it to be a Integer, or be a string of digits optionally with a minus sign in front
+
+
+
+> outcome = Add.run
+==> #<Foobara::Outcome:0x00007ffbcb9d97b0...
+> outcome.success?
+==> false
+> puts outcome.errors_sentence
+Missing required attribute operand1, and Missing required attribute operand2

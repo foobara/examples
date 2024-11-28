@@ -1,0 +1,2 @@
+> FoobaraExamples.foobara_domains
+==> [FoobaraExamples::IntegerMath]

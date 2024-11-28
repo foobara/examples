@@ -1,0 +1,20 @@
+> command = DoNothing.new
+==> #<DoNothing:0x3a0c @raw_inputs={}, @error_collection=#<Foobara::ErrorCo...
+> outcome = command.run
+==> #<Foobara::Outcome:0x00007f1760fa36a0...
+> outcome.success?
+==> true
+> outcome.result
+==> nil
+> outcome.errors
+==> []
+
+> outcome = DoNothing.run
+==> #<Foobara::Outcome:0x00007f224d5b8198...
+> outcome.success?
+==> true
+> outcome.result
+==> nil
+> outcome.errors
+==> []
+
