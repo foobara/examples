@@ -1,17 +1,13 @@
-> fumiko = Capybara.new(name: "Fumiko", age: 100)
-==> #<Capybara:0x00007fa8e6a24270 @attributes={:name=>"Fumiko", :age=>100}, @mutable=true>
 > fumiko.age
 ==> 100
 > IncrementAge.run!(capybara: fumiko)
-==> #<Capybara:0x00007fa8e6a24270 @attributes={:name=>"Fumiko", :age=>101}, @mutable=true>
+==> #<Capybara:0x00007f97966e18d0 @attributes={:name=>"Fumiko", :nickname=>"foo", :age=>101}, @mutable=true>
 > fumiko.age
 ==> 101
 
 
 
-
-> barbara = IncrementAge.run!(capybara: { name: "Barbara", age: 101 })
-==> #<Capybara:0x00007fa8e6be46a0 @attributes={:name=>"Barbara", :age=>102}, @mutable=true>
+> barbara = IncrementAge.run!(capybara: { name: "Barbara", nickname: "bar", age: 200 })
+==> #<Capybara:0x00007f979ae83d00 @attributes={:name=>"Barbara", :nickname=>"bar", :age=>201}, @mutable=true>
 > barbara.age
-==> 102
-> fumiko = Capybara.new(name: "Fumiko", age: 100)
+==> 201

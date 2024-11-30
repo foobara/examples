@@ -5,13 +5,14 @@ require "foobara"
 class Capybara < Foobara::Model
   attributes do
     name :string
+    nickname :string
     age :integer
   end
 end
 
-$fumiko = Capybara.new(name: "Fumiko", age: 100)
-$barbara = Capybara.new(name: "Barbara", age: 101)
-$basil = Capybara.new(name: "Basil", age: 102)
+$fumiko = Capybara.new(name: "Fumiko", nickname: "foo", age: 100)
+$barbara = Capybara.new(name: "Barbara", nickname: "bar", age: 200)
+$basil = Capybara.new(name: "Basil", nickname: "baz", age: 300)
 
 class IncrementAge < Foobara::Command
   inputs do

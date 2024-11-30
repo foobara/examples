@@ -11,8 +11,8 @@ class Capybara < Foobara::Model
 end
 
 $fumiko = Capybara.new(name: "Fumiko", nickname: "foo", age: 100)
-$barbara = Capybara.new(name: "Barbara", nickname: "bar", age: 101)
-$basil = Capybara.new(name: "Basil", nickname: "baz", age: 102)
+$barbara = Capybara.new(name: "Barbara", nickname: "bar", age: 200)
+$basil = Capybara.new(name: "Basil", nickname: "baz", age: 300)
 
 require "irb"
 IRB.start(__FILE__)

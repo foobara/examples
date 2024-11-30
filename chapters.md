@@ -17,7 +17,6 @@ Foobara 101
   b. IncrementAge command
     i. call with a capybara
     ii. call with attributes
-    iii. demonstrate casting by returning attributes instead of a Capybara
 6. upgrade to entity
   a. InMemory crud driver
 7. Command connectors
@@ -38,6 +37,7 @@ Intermediate
   a. make a custom DivideByZero error
 3. models
   a. immutability
+  b. demonstrate casting by returning attributes instead of a Capybara
 
 Advanced
 

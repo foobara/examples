@@ -9,6 +9,7 @@ class Capybara < Foobara::Entity
   attributes do
     id :integer
     name :string
+    nickname :string
     age :integer
   end
 
@@ -32,9 +33,9 @@ class CreateCapybara < Foobara::Command
   end
 end
 
-$fumiko = CreateCapybara.run!(name: "Fumiko", age: 100)
-$barbara = CreateCapybara.run!(name: "Barbara", age: 101)
-$basil = CreateCapybara.run!(name: "Basil", age: 102)
+$fumiko = CreateCapybara.run!(name: "Fumiko", nickname: "foo", age: 100)
+$barbara = CreateCapybara.run!(name: "Barbara", nickname: "bar", age: 200)
+$basil = CreateCapybara.run!(name: "Basil", nickname: "baz", age: 300)
 
 class IncrementAge < Foobara::Command
   inputs do
