@@ -1,0 +1,89 @@
+╭┨~/gitlocal/foobara/examples/foobara_101/chapter_5_command_connectors┠────┨main
+╰./capy-cafe list
+CreateCapybara
+IncrementAge
+╒╣~/gitlocal/foobara/examples/foobara_101/chapter_5_command_connectors╠════╣main
+╰./capy-cafe help CreateCapybara
+Usage: capy-cafe [GLOBAL_OPTIONS] CreateCapybara [COMMAND_INPUTS]
+
+Just creates a capybara!
+
+Command inputs:
+
+ -i, --id ID
+ -n, --name NAME                  Official name. Required
+     --nickname NICKNAME          Informal name for friends
+ -a, --age AGE                    The number of times this capybara has gone around the sun. Required
+
+Global options:
+
+ -h, --help                       Show this message
+ -l, --list                       List all commands
+ -f, --format FORMAT              Set the input/output format (such as yaml or json)
+     --input-format FORMAT        Set the input format (such as yaml or json)
+     --output-format FORMAT       Set the output format (such as yaml or json)
+     --stdin                      Read and parse inputs from stdin
+     --verbose                    Enable verbose output
+     --entity-depth DEPTH         Set the entity depth
+     --atomic                     Set the entity depth to atomic
+     --aggregate                  Set the entity depth to aggregate
+     --record-store               Set the entity depth to record-store
+╭┨~/gitlocal/foobara/examples/foobara_101/chapter_5_command_connectors┠────┨main
+╰./capy-cafe CreateCapybara -n "Fumiko" -a 400
+name: "Fumiko",
+age: 400,
+id: 1
+╒╣~/gitlocal/foobara/examples/foobara_101/chapter_5_command_connectors╠════╣main
+╰./capy-cafe help IncrementAge
+Usage: capy-cafe [GLOBAL_OPTIONS] IncrementAge [COMMAND_INPUTS]
+
+Command inputs:
+
+ -c, --capybara CAPYBARA          Required
+
+Global options:
+
+ -h, --help                       Show this message
+ -l, --list                       List all commands
+ -f, --format FORMAT              Set the input/output format (such as yaml or json)
+     --input-format FORMAT        Set the input format (such as yaml or json)
+     --output-format FORMAT       Set the output format (such as yaml or json)
+     --stdin                      Read and parse inputs from stdin
+     --verbose                    Enable verbose output
+     --entity-depth DEPTH         Set the entity depth
+     --atomic                     Set the entity depth to atomic
+     --aggregate                  Set the entity depth to aggregate
+     --record-store               Set the entity depth to record-store
+╭┨~/gitlocal/foobara/examples/foobara_101/chapter_5_command_connectors┠────┨main
+╰./capy-cafe IncrementAge -c 1
+/home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/in_memory_crud_driver_minimal/src/in_memory_minimal.rb:59:in `find!': Could not find for id 1: does not exist (Foobara::Persistence::EntityAttributesCrudDriver::Table::CannotFindError)
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/persistence/src/entity_base/transaction_table.rb:121:in `block in load'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/persistence/src/entity_base/transaction_table/concerns/record_tracking.rb:24:in `loading'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/persistence/src/entity_base/transaction_table.rb:120:in `load'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/persistence/src/entity_base/transaction.rb:107:in `load'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/entity/src/concerns/persistence.rb:88:in `load_if_necessary!'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/entity/src/concerns/attributes.rb:108:in `read_attribute'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/model/src/concerns/types.rb:91:in `block (2 levels) in model_type='
+	from ./capy-cafe:57:in `increment_age'
+	from ./capy-cafe:51:in `execute'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/command/src/concerns/runtime.rb:70:in `run_execute'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/command/src/concerns/runtime.rb:112:in `block in invoke_with_callbacks_and_transition'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/state_machine/src/state_machine.rb:65:in `block in perform_transition!'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/callback/src/runner.rb:82:in `run_callback'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/callback/src/runner.rb:45:in `run'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/state_machine/src/state_machine.rb:64:in `perform_transition!'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/command/src/concerns/runtime.rb:111:in `invoke_with_callbacks_and_transition'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/command/src/concerns/runtime.rb:106:in `block in invoke_with_callbacks_and_transition'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/command/src/concerns/runtime.rb:105:in `each'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/command/src/concerns/runtime.rb:105:in `invoke_with_callbacks_and_transition'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/command/src/concerns/runtime.rb:97:in `block in invoke_with_callbacks_and_transition_in_transaction'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/persistence/src/entity_base.rb:101:in `transaction'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/persistence/src/entity_base.rb:56:in `using_transaction'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/persistence/src/entity_base.rb:13:in `using_transactions'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/command/src/concerns/runtime.rb:96:in `invoke_with_callbacks_and_transition_in_transaction'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/command/src/concerns/runtime.rb:30:in `block in run'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/namespace/src/namespace.rb:29:in `use'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/command/src/concerns/runtime.rb:27:in `run'
+	from /home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/command_connectors/src/command_connector.rb:318:in `run'
+	from ./capy-cafe:69:in `<main>'
+╒╣~/gitlocal/foobara/examples/foobara_101/cha

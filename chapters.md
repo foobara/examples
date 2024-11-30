@@ -36,16 +36,19 @@ Intermediate
 2. errors
   a. make a custom DivideByZero error
 3. models
-  a. immutability
+  a. immutability?
   b. demonstrate casting by returning attributes instead of a Capybara
+4. creating transactions in the console/tests
 
 Advanced
 
+0. creating stand-alone foobara projects
 1. command 
   c. callbacks: event log use-case
   d. transactions in commands
 
-expert
+Expert
+
 1. custom crud driver
   a. read/write to yaml file
 2. custom command connector
