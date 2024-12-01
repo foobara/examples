@@ -18,7 +18,7 @@ class Capybara < Foobara::Entity
 end
 
 class CreateCapybara < Foobara::Command
-  inputs Capybara.attributes_type
+  inputs Capybara.attributes_for_create
   result Capybara
 
   def execute
@@ -53,6 +53,26 @@ class IncrementAge < Foobara::Command
 
   def increment_age
     capybara.age += 1
+  end
+end
+
+class FindCapybara < Foobara::Command
+  inputs do
+    id Capybara.primary_key_type, :required
+  end
+
+  result Capybara
+
+  def execute
+    load_capybara
+
+    capybara
+  end
+
+  attr_accessor :capybara
+
+  def load_capybara
+    self.capybara = Capybara.load(id)
   end
 end
 

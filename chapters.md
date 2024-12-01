@@ -18,7 +18,8 @@ Foobara 101
     i. call with a capybara
     ii. call with attributes
 6. upgrade to entity
-  a. InMemory crud driver
+  a. InMemory crud driver at first?
+  b. upgrade to LocalFilesCrudDriver?
 7. Command connectors
   a. cli
   b. http
@@ -39,6 +40,9 @@ Intermediate
   a. immutability?
   b. demonstrate casting by returning attributes instead of a Capybara
 4. creating transactions in the console/tests
+5. attributes types w/ processors
+  a. :required
+  b. :allow_nil
 
 Advanced
 

@@ -31,3 +31,15 @@ capybara:
       :nickname: baz
       :age: 301
 >
+
+
+
+
+
+
+
+> basil = FindCapybara.run!(id: 3)
+==> <Capybara:3>
+> basil.age
+==> 301
+>
