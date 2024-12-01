@@ -1,0 +1,52 @@
+> CreateCapybara.run!(name: "Fumiko", nickname: "foo", age: 100)
+==> <Capybara:1>
+> CreateCapybara.run!(name: "Barbara", nickname: "bar", age: 200)
+==> <Capybara:2>
+> CreateCapybara.run!(name: "Basil", nickname: "baz", age: 300)
+==> <Capybara:3>
+> puts File.read("local_data/records.yml")
+---
+capybara:
+  sequence: 4
+  records:
+    1:
+      :name: Fumiko
+      :nickname: foo
+      :age: 100
+      :id: 1
+    2:
+      :name: Barbara
+      :nickname: bar
+      :age: 200
+      :id: 2
+    3:
+      :id: 3
+      :name: Basil
+      :nickname: baz
+      :age: 300
+>
+
+
+
+
+
+
+
+> basil = FindCapybara.run!(id: 3)
+==> <Capybara:3>
+> basil.age
+==> 300
+> basil = IncrementAge.run!(capybara: 3)
+==> <Capybara:3>
+> basil.age
+==> 301
+>
+
+
+
+
+> basil = FindCapybara.run!(id: 3)
+==> <Capybara:3>
+> basil.age
+==> 301
+>

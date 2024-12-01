@@ -25,7 +25,7 @@ Foobara 101
   b. http
     i. rack
     ii. rails
-7. Manifest metadata
+7. Manifest metadata?
 8. Remote command basics
   a. import from another process and call IncrementAge
 

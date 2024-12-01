@@ -2,7 +2,6 @@
 
 require "foobara"
 require "foobara/local_files_crud_driver"
-require "foobara/sh_cli_connector"
 
 crud_driver = Foobara::LocalFilesCrudDriver.new
 Foobara::Persistence.default_crud_driver = crud_driver
@@ -19,9 +18,7 @@ class Capybara < Foobara::Entity
 end
 
 class CreateCapybara < Foobara::Command
-  description "Just creates a capybara!"
-
-  inputs Capybara.attributes_type
+  inputs Capybara.attributes_for_create
   result Capybara
 
   def execute
@@ -37,9 +34,25 @@ class CreateCapybara < Foobara::Command
   end
 end
 
-class FindCapybara < Foobara::Command
-  description "Just tell us who you want to find!"
+class IncrementAge < Foobara::Command
+  inputs do
+    capybara Capybara, :required
+  end
 
+  result Capybara
+
+  def execute
+    increment_age
+
+    capybara
+  end
+
+  def increment_age
+    capybara.age += 1
+  end
+end
+
+class FindCapybara < Foobara::Command
   inputs do
     id Capybara.primary_key_type, :required
   end
@@ -59,33 +72,5 @@ class FindCapybara < Foobara::Command
   end
 end
 
-class IncrementAge < Foobara::Command
-  description "A trip around the sun!"
-
-  inputs do
-    capybara Capybara, :required
-  end
-
-  result Capybara
-
-  def execute
-    increment_age
-
-    capybara
-  end
-
-  def increment_age
-    capybara.age += 1
-  end
-end
-
-# require "irb"
-# IRB.start(__FILE__)
-
-cli_command_connector = Foobara::CommandConnectors::ShCliConnector.new
-
-cli_command_connector.connect(CreateCapybara)
-cli_command_connector.connect(IncrementAge)
-cli_command_connector.connect(FindCapybara)
-
-cli_command_connector.run(ARGV)
+require "irb"
+IRB.start(__FILE__)

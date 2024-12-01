@@ -1,23 +1,24 @@
 #!/usr/bin/env ruby
 
 require "foobara"
-require "foobara/local_files_crud_driver"
 
-crud_driver = Foobara::LocalFilesCrudDriver.new
+crud_driver = Foobara::Persistence::CrudDrivers::InMemory.new
 Foobara::Persistence.default_crud_driver = crud_driver
 
 class Capybara < Foobara::Entity
   attributes do
     id :integer
-    name :string
-    nickname :string
-    age :integer
+    name :string, :required, "Official name"
+    nickname :string, "Informal name for friends"
+    age :integer, :required, "The number of times this capybara has gone around the sun"
   end
 
   primary_key :id
 end
 
 class CreateCapybara < Foobara::Command
+  description "Just creates a capybara!"
+
   inputs Capybara.attributes_for_create
   result Capybara
 
@@ -34,10 +35,6 @@ class CreateCapybara < Foobara::Command
   end
 end
 
-# $fumiko = CreateCapybara.run!(name: "Fumiko", nickname: "foo", age: 100)
-# $barbara = CreateCapybara.run!(name: "Barbara", nickname: "bar", age: 200)
-# $basil = CreateCapybara.run!(name: "Basil", nickname: "baz", age: 300)
-
 class IncrementAge < Foobara::Command
   inputs do
     capybara Capybara, :required
@@ -53,26 +50,6 @@ class IncrementAge < Foobara::Command
 
   def increment_age
     capybara.age += 1
-  end
-end
-
-class FindCapybara < Foobara::Command
-  inputs do
-    id Capybara.primary_key_type, :required
-  end
-
-  result Capybara
-
-  def execute
-    load_capybara
-
-    capybara
-  end
-
-  attr_accessor :capybara
-
-  def load_capybara
-    self.capybara = Capybara.load(id)
   end
 end
 

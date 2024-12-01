@@ -4,9 +4,9 @@ require "foobara"
 
 class Capybara < Foobara::Model
   attributes do
-    name :string
-    nickname :string
-    age :integer
+    name :string, :required, "Official name"
+    nickname :string, "Informal name for friends"
+    age :integer, :required, "The number of times this capybara has gone around the sun"
   end
 end
 
