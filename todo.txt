@@ -1,3 +1,3 @@
 * Retroactively make CreateCapybara have required fields for all but id. how best to do this?
 * Add command description to CLI list and help actions
-* Make a local-file crud driver. YAML maybe to start with.
+* Make use of capy competition stuff in readme_example directory?

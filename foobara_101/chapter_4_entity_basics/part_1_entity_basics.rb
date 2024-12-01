@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
 
 require "foobara"
+require "foobara/local_files_crud_driver"
 
-crud_driver = Foobara::Persistence::CrudDrivers::InMemory.new
+crud_driver = Foobara::LocalFilesCrudDriver.new
 Foobara::Persistence.default_crud_driver = crud_driver
 
 class Capybara < Foobara::Entity
@@ -33,9 +34,9 @@ class CreateCapybara < Foobara::Command
   end
 end
 
-$fumiko = CreateCapybara.run!(name: "Fumiko", nickname: "foo", age: 100)
-$barbara = CreateCapybara.run!(name: "Barbara", nickname: "bar", age: 200)
-$basil = CreateCapybara.run!(name: "Basil", nickname: "baz", age: 300)
+# $fumiko = CreateCapybara.run!(name: "Fumiko", nickname: "foo", age: 100)
+# $barbara = CreateCapybara.run!(name: "Barbara", nickname: "bar", age: 200)
+# $basil = CreateCapybara.run!(name: "Basil", nickname: "baz", age: 300)
 
 class IncrementAge < Foobara::Command
   inputs do

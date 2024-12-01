@@ -1,13 +1,33 @@
-> basil = CreateCapybara.run!(name: "Basil", nickname: "baz", age: 300)
+> fumiko = CreateCapybara.run!(name: "Fumiko", nickname: "foo", age: 100)
 ==> <Capybara:1>
+> barbara = CreateCapybara.run!(name: "Barbara", nickname: "bar", age: 200)
+==> <Capybara:2>
+> basil = CreateCapybara.run!(name: "Basil", nickname: "baz", age: 300)
+==> <Capybara:3>
 > basil.age
 ==> 300
-> IncrementAge.run!(capybara: basil)
-/home/miles/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/foobara-0.0.17/projects/persistence/src/entity_base/transaction/concerns/entity_callback_handling.rb:22:in `block in install!': Cannot modify #<Capybara:0x00007f87f09ace08> because there's no current transaction (Foobara::Persistence::EntityBase::Transaction::NoCurrentTransactionError)
-> basil.id
-==> 1
-> IncrementAge.run!(capybara: 1)
-==> <Capybara:1>
+> basil = IncrementAge.run!(capybara: 3)
+==> <Capybara:3>
 > basil.age
 ==> 301
-
+> puts File.read("local_data/records.yml")
+---
+capybara:
+  sequence: 4
+  records:
+    1:
+      :name: Fumiko
+      :nickname: foo
+      :age: 100
+      :id: 1
+    2:
+      :name: Barbara
+      :nickname: bar
+      :age: 200
+      :id: 2
+    3:
+      :id: 3
+      :name: Basil
+      :nickname: baz
+      :age: 301
+>
