@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# rails new --api --skip-docker --skip-asset-pipeline --skip-javascript --skip-hotwire --skip-jbuilder --skip-test --skip-brakeman --skip-kamal --skip-solid test_app
+# rails new --api --skip-docker --skip-asset-pipeline --skip-javascript --skip-hotwire --skip-jbuilder --skip-test --skip-brakeman --skip-kamal --skip-solid rails_test_app
 
 require "foobara"
 require "foobara/local_files_crud_driver"
