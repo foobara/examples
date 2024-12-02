@@ -2,7 +2,8 @@
 
 require "foobara"
 require "foobara/local_files_crud_driver"
-require "foobara/sh_cli_connector"
+require "foobara/rack_connector"
+require "rack/server"
 
 crud_driver = Foobara::LocalFilesCrudDriver.new
 Foobara::Persistence.default_crud_driver = crud_driver
@@ -79,13 +80,10 @@ class IncrementAge < Foobara::Command
   end
 end
 
-# require "irb"
-# IRB.start(__FILE__)
-
-command_connector = Foobara::CommandConnectors::ShCliConnector.new
+command_connector = Foobara::CommandConnectors::Http::Rack.new
 
 command_connector.connect(CreateCapybara)
 command_connector.connect(IncrementAge)
 command_connector.connect(FindCapybara)
 
-command_connector.run(ARGV)
+Rack::Server.start(app: command_connector)
