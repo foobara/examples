@@ -28,6 +28,11 @@ Foobara 101
 7. Manifest metadata?
 8. Remote command basics
   a. import from another process and call IncrementAge
+9. Domain mappers
+  a. make a domain mapper
+    i. Maybe map from some Animal model?
+      Animal.names[0].first + last...
+      Birthday to age?
 
 Intermediate
 

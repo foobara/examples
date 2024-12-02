@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
 
+# rails new --api --skip-docker --skip-asset-pipeline --skip-javascript --skip-hotwire --skip-jbuilder --skip-test --skip-brakeman --skip-kamal --skip-solid test_app
+
 require "foobara"
 require "foobara/local_files_crud_driver"
-require "foobara/sh_cli_connector"
 
 crud_driver = Foobara::LocalFilesCrudDriver.new
 Foobara::Persistence.default_crud_driver = crud_driver
@@ -78,11 +79,3 @@ class IncrementAge < Foobara::Command
     capybara.age += 1
   end
 end
-
-command_connector = Foobara::CommandConnectors::ShCliConnector.new
-
-command_connector.connect(CreateCapybara)
-command_connector.connect(IncrementAge)
-command_connector.connect(FindCapybara)
-
-command_connector.run(ARGV)
