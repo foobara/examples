@@ -1,0 +1,19 @@
+$ ./part_1_custom_divide_by_zero_error.rb
+> outcome = Divide.run(dividend: 10, divisor: 0)
+==> #<Foobara::Outcome:0x00007f700f770e08...
+> outcome.success?
+==> false
+> outcome.errors_sentence
+==> "Cannot divide by zero"
+> outcome.errors_hash
+==> 
+{"data.divisor.divide_by_zero"=>
+  {:key=>"data.divisor.divide_by_zero",
+   :path=>[:divisor],
+   :runtime_path=>[],
+   :category=>:data,
+   :symbol=>:divide_by_zero,
+   :message=>"Cannot divide by zero",
+   :context=>{},
+   :is_fatal=>false}}
+>
