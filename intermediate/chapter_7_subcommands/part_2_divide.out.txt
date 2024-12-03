@@ -1,0 +1,10 @@
+$ ./part_2_divide.rb
+> Divide.run!(dividend: 7, divisor: 7)
+==> 1
+> Divide.run!(dividend: 7, divisor: 6)
+==> 1
+> Divide.run!(dividend: 10, divisor: 3)
+==> 3
+> Divide.run!(dividend: 10, divisor: -3)
+==> -3
+>
