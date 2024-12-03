@@ -1,2 +1,1 @@
 * Make use of capy competition stuff in readme_example directory?
-* Figure out why manifest.json isn't successfully being imported via remote-imports
