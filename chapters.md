@@ -25,17 +25,13 @@ Foobara 101
   b. http
     i. rack
     ii. rails
-7. Manifest metadata?
-8. Remote command basics
-  a. import from another process and call IncrementAge
-9. Domain mappers
-  a. make a domain mapper
-    i. Maybe map from some Animal model?
-      Animal.names[0].first + last...
-      Birthday to age?
+
 
 Intermediate
 
+7. Manifest metadata?
+8. Remote command basics
+   a. import from another process and call IncrementAge
 1. commands
   a. make a Subtract command via #run_subcommand
   b. make an integer division method
@@ -44,7 +40,11 @@ Intermediate
 3. models
   a. immutability?
   b. demonstrate casting by returning attributes instead of a Capybara
-4. creating transactions in the console/tests
+9. Domain mappers
+   a. make a domain mapper
+   i. Maybe map from some Animal model?
+   Animal.names[0].first + last...
+   Birthday to age?
 5. attributes types w/ processors
   a. :required
   b. :allow_nil
@@ -52,6 +52,7 @@ Intermediate
 Advanced
 
 0. creating stand-alone foobara projects
+4. creating transactions in the console/tests
 1. command 
   c. callbacks: event log use-case
   d. transactions in commands
