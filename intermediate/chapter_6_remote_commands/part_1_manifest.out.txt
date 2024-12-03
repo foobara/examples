@@ -1,0 +1,24 @@
+> Capybara.foobara_manifest
+==>
+{:attributes_type=>
+  {:type=>:attributes,
+   :element_type_declarations=>
+    {:id=>{:type=>:integer},
+     :name=>{:description=>"Official name", :type=>:string},
+     :nickname=>{:description=>"Informal name for friends", :type=>:string},
+     :age=>{:description=>"The number of times this capybara has gone around the sun", :type=>:integer}},
+   :required=>[:name, :age]},
+ :organization_name=>"global_organization",
+ :domain_name=>"global_domain",
+ :model_name=>"Capybara",
+ :model_base_class=>"Foobara::Entity",
+ :model_class=>"Capybara",
+ :entity_name=>"Capybara",
+ :primary_key_attribute=>:id,
+ :primary_key_type=>{:type=>:integer}}
+>
+
+
+
+> $command_connector.foobara_manifest[:command].keys
+==> [:CreateCapybara, :FindCapybara, :IncrementAge]

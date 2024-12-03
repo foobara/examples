@@ -18,6 +18,8 @@ class Capybara < Foobara::Entity
 end
 
 class CreateCapybara < Foobara::Command
+  description "Just creates a capybara!"
+
   inputs Capybara.attributes_for_create
   result Capybara
 

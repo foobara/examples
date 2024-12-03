@@ -81,9 +81,13 @@ class IncrementAge < Foobara::Command
 end
 
 command_connector = Foobara::CommandConnectors::Http::Rack.new
+$command_connector = command_connector
 
 command_connector.connect(CreateCapybara)
 command_connector.connect(IncrementAge)
 command_connector.connect(FindCapybara)
 
-Rackup::Server.start(app: command_connector)
+# Rackup::Server.start(app: command_connector)
+
+require "irb"
+IRB.start(__FILE__)
