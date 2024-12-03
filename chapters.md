@@ -45,9 +45,10 @@ Intermediate
    i. Maybe map from some Animal model?
    Animal.names[0].first + last...
    Birthday to age?
-5. attributes types w/ processors
-  a. :required
-  b. :allow_nil
+10. types
+  a. attributes types w/ processors
+    i. :required
+    ii. :allow_nil
 
 Advanced
 

@@ -1,0 +1,10 @@
+$ ./part_2a_remote_commands_server.rb
+Puma starting in single mode...
+* Puma version: 6.5.0 ("Sky's Version")
+* Ruby version: ruby 3.2.2 (2023-03-30 revision e51014f9c0) [x86_64-linux]
+*  Min threads: 0
+*  Max threads: 5
+*  Environment: development
+*          PID: 1330827
+* Listening on http://0.0.0.0:9292
+Use Ctrl-C to stop

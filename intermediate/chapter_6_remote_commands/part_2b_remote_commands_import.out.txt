@@ -1,0 +1,6 @@
+$ ./part_2b_remote_commands_import.rb
+> capybara = FindCapybara.run!(id: 1)
+==> #<Capybara:0x00007f6895bb2998 @attributes={:name=>"Fumiko", :nickname=>"foo", :age=>100, :id=>1}, @mutable=false>
+> capybara.age
+==> 100
+>

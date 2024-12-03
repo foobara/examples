@@ -1,2 +1,2 @@
-* Add command description to CLI list and help actions
 * Make use of capy competition stuff in readme_example directory?
+* Figure out why manifest.json isn't successfully being imported via remote-imports
