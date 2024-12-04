@@ -1,0 +1,12 @@
+$ ./part_1c_animal_house_import.rb
+> barbara = FoobaraDemo::CapyCafe::ImportAnimal.run!(animal: {species: :capybara, first_name: "Barbara", last_name: "Doe", birthday: "2000-01-01"})
+==> #<FoobaraDemo::CapyCafe::Capybara:0x00007fe7ed864c78 @attributes={:name=>"Barbara Doe", :age=>24, :id=>1}, @mutable=false>
+> barbara.id
+==> 1
+> barbara.name
+==> "Barbara Doe"
+> barbara.age
+==> 24
+> FoobaraDemo::CapyCafe::FindCapybara.run!(id: 1).name
+==> "Barbara Doe"
+>

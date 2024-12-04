@@ -1,0 +1,8 @@
+---
+capybara:
+  sequence: 2
+  records:
+    1:
+      :name: Barbara Doe
+      :age: 24
+      :id: 1
