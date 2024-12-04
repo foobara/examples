@@ -47,7 +47,7 @@ class Subtract < Foobara::Command
 end
 
 class Divide < Foobara::Command
-  possible_input_error :divisor, :divide_by_zero, message: "Cannot divide by zero"
+  possible_error :divide_by_zero, message: "Cannot divide by zero"
 
   inputs do
     dividend :integer, :required
@@ -59,6 +59,8 @@ class Divide < Foobara::Command
   depends_on Subtract
 
   def execute
+    validate_divisor
+
     initialize_quotient_to_zero
     make_operands_positive_and_determine_if_result_is_negative
 
@@ -72,9 +74,9 @@ class Divide < Foobara::Command
     quotient
   end
 
-  def validate
+  def validate_divisor
     if divisor == 0
-      add_input_error :divisor, :divide_by_zero
+      add_runtime_error DivideByZeroError
     end
   end
 

@@ -37,29 +37,29 @@ Intermediate
   b. make an integer division method
 2. errors
   a. make a custom DivideByZero error
-3. models
-  a. immutability?
-  b. demonstrate casting by returning attributes instead of a Capybara
+
+Advanced
+
 9. Domain mappers
    a. make a domain mapper
    i. Maybe map from some Animal model?
    Animal.names[0].first + last...
    Birthday to age?
 10. types
+  b. demonstrate casting by returning attributes instead of a Capybara
   a. attributes types w/ processors
     i. :required
     ii. :allow_nil
-
-Advanced
-
 0. creating stand-alone foobara projects
-4. creating transactions in the console/tests
-1. command 
-  c. callbacks: event log use-case
-  d. transactions in commands
+   1. ruby
+   2. typescript
 
 Expert
 
+1. command
+   c. callbacks: event log use-case
+   d. transactions in commands
+4. creating transactions in the console/tests
 1. custom crud driver
   a. read/write to yaml file
 2. custom command connector

@@ -47,7 +47,13 @@ class Subtract < Foobara::Command
 end
 
 class Divide < Foobara::Command
-  possible_input_error :divisor, :divide_by_zero, message: "Cannot divide by zero"
+  class DivideByZeroError < Foobara::DataError
+    def message
+      "Cannot divide by zero"
+    end
+  end
+
+  possible_input_error :divisor, DivideByZeroError
 
   inputs do
     dividend :integer, :required

@@ -17,3 +17,31 @@ $ ./part_1_custom_divide_by_zero_error.rb
    :context=>{},
    :is_fatal=>false}}
 >
+
+
+
+> Foobara.manifest[:command][:Divide][:possible_errors].keys.sort
+==>
+["data.cannot_cast",
+ "data.dividend.cannot_cast",
+ "data.dividend.missing_required_attribute",
+ "data.divisor.cannot_cast",
+ "data.divisor.divide_by_zero",
+ "data.divisor.missing_required_attribute",
+ "data.missing_required_attribute",
+ "data.unexpected_attributes",
+ "subtract>add>data.cannot_cast",
+ "subtract>add>data.missing_required_attribute",
+ "subtract>add>data.operand1.cannot_cast",
+ "subtract>add>data.operand1.missing_required_attribute",
+ "subtract>add>data.operand2.cannot_cast",
+ "subtract>add>data.operand2.missing_required_attribute",
+ "subtract>add>data.unexpected_attributes",
+ "subtract>data.cannot_cast",
+ "subtract>data.missing_required_attribute",
+ "subtract>data.operand1.cannot_cast",
+ "subtract>data.operand1.missing_required_attribute",
+ "subtract>data.operand2.cannot_cast",
+ "subtract>data.operand2.missing_required_attribute",
+ "subtract>data.unexpected_attributes"]
+>
