@@ -46,6 +46,7 @@ Advanced
    Animal.names[0].first + last...
    Birthday to age?
 10. types
+  a. custom types
   b. demonstrate casting by returning attributes instead of a Capybara
   a. attributes types w/ processors
     i. :required
