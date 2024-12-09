@@ -11,3 +11,20 @@
 ==> #<Capybara:0x00007f979ae83d00 @attributes={:name=>"Barbara", :nickname=>"bar", :age=>201}, @mutable=true>
 > barbara.age
 ==> 201
+
+
+> barbara = Capybara.new(name: "Barbara", age: 200, nickname: "bar")
+==> #<Capybara:0x00007f0ac121dbf8 @attributes={:name=>"Barbara", :age=>200, :nickname=>"bar"}, @mutable=true>
+> barbara.age
+==> 200
+> IncrementAge.run!(capybara: barbara)
+==> #<Capybara:0x00007f0ac121dbf8 @attributes={:name=>"Barbara", :age=>201, :nickname=>"bar"}, @mutable=true>
+> barbara.age
+==> 201
+
+
+
+> basil = IncrementAge.run!(capybara: { name: "Basil", age: 300, nickname: "baz" })
+==> #<Capybara:0x00007f0ac1295f40 @attributes={:name=>"Basil", :age=>301, :nickname=>"baz"}, @mutable=true>
+> basil.age
+==> 301

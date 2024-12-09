@@ -4,30 +4,30 @@ require "foobara"
 
 module FoobaraExamples
   foobara_organization!
-end
 
-module FoobaraExamples::IntegerMath
-  foobara_domain!
-end
+  module IntegerMath
+    foobara_domain!
 
-class FoobaraExamples::IntegerMath::Add < Foobara::Command
-  inputs do
-    operand1 :integer, :required
-    operand2 :integer, :required
-  end
+    class Add < Foobara::Command
+      inputs do
+        operand1 :integer, :required
+        operand2 :integer, :required
+      end
 
-  result :integer
+      result :integer
 
-  def execute
-    add_operands
+      def execute
+        add_operands
 
-    sum
-  end
+        sum
+      end
 
-  attr_accessor :sum
+      attr_accessor :sum
 
-  def add_operands
-    self.sum = operand1 + operand2
+      def add_operands
+        self.sum = operand1 + operand2
+      end
+    end
   end
 end
 

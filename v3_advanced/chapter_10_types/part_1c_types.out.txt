@@ -1,0 +1,14 @@
+$ ./part_1c_custom_types.rb
+> judge = FoobaraDemo::CapybaraDivingCompetition::Judge.new(email: "ASDF@foobara.COM")
+==> #<FoobaraDemo::CapybaraDivingCompetition::Judge:0x00007f783a0614e0 @attributes={:email=>"asdf@foobara.com"}, @mutable=true>
+> judge.valid?
+==> true
+> judge.email
+==> "asdf@foobara.com"
+> judge = FoobaraDemo::CapybaraDivingCompetition::Judge.new(email: "@SDF@foob@r@.COM")
+==> #<FoobaraDemo::CapybaraDivingCompetition::Judge:0x00007f7839b66418 @attributes={:email=>"@SDF@foob@r@.COM"}, @mutable=true>
+> judge.valid?
+==> false
+> judge.validation_errors
+==> [#<Foobara::BuiltinTypes::String::SupportedValidators::Matches::DoesNotMatchError: "@sdf@foob@r@.com" did not match /\A[^@]+@[^@]+\.[^@]+\z/>]
+>

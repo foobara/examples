@@ -1,0 +1,53 @@
+def print_type_inheritance(type)
+  types = Enumerator.produce(type, &:base_type).take_while { |t| !t.nil? }
+  Foobara::Util.print_tree(types, to_parent: :base_type, to_name: :name)
+end
+
+
+
+* def print_type_inheritance(type)
+*   types = Enumerator.produce(type, &:base_type).take_while { |t| !t.nil? }
+*   Foobara::Util.print_tree(types, to_parent: :base_type, to_name: :name)
+> end
+==> :print_type_inheritance
+> capybara_type = Foobara.foobara_lookup(:Capybara)
+==> #<Type:Capybara:0x88b8 {:type=>:model, :name=>"Capybara", :model_class=>"Capybara", :model_base_class=>"Foobara::Model", :attributes_declaration=>{:typ...
+> print_type_inheritance(capybara_type)
+> print_type_inheritance(capybara_type)
+╭──────╮
+│ duck │
+╰──┬───╯
+   │ ╭─────────────╮
+   └─┤ atomic_duck │
+     ╰──────┬──────╯
+            │ ╭───────╮
+            └─┤ model │
+              ╰───┬───╯
+                  │ ╭────────╮
+                  └─┤ entity │
+                    ╰───┬────╯
+                        │ ╭──────────╮
+                        └─┤ Capybara │
+                          ╰──────────╯
+
+
+
+
+
+
+> print_type_inheritance(Capybara.attributes_type)
+╭──────╮
+│ duck │
+╰──┬───╯
+   │ ╭──────────╮
+   └─┤ duckture │
+     ╰────┬─────╯
+          │ ╭───────────────────╮
+          └─┤ associative_array │
+            ╰─────────┬─────────╯
+                      │ ╭────────────╮
+                      └─┤ attributes │
+                        ╰─────┬──────╯
+                              │ ╭────────────────────────────────╮
+                              └─┤ Anonymous attributes extension │
+                                ╰────────────────────────────────╯
