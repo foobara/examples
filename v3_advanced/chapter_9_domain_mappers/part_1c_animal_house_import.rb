@@ -29,27 +29,29 @@ module FoobaraDemo
   module CapyCafe
     foobara_depends_on AnimalHouse
 
-    class AnimalToCapybara < Foobara::DomainMapper
-      from AnimalHouse::Animal
-      to CreateCapybara
+    module DomainMappers
+      class MapAnimalToCapybara < Foobara::DomainMapper
+        from AnimalHouse::Animal
+        to CreateCapybara
 
-      def map(animal)
-        age = birthday_to_age(animal.birthday)
+        def map
+          {
+            name: "#{first_name} #{last_name}",
+            age: birthday_to_age
+          }
+        end
 
-        {
-          name: "#{animal.first_name} #{animal.last_name}",
-          age:
-        }
-      end
+        alias animal from
 
-      def birthday_to_age(birthday)
-        today = Date.today
+        foobara_delegate :first_name, :last_name, :birthday, to: :animal
 
-        age = today.year - birthday.year
+        def birthday_to_age
+          today = Date.today
+          age = today.year - birthday.year
+          birthday_this_year = Date.new(birthday.year + age, birthday.month, birthday.day)
 
-        birthday_this_year = Date.new(birthday.year + age, birthday.month, birthday.day)
-
-        today < birthday_this_year ? age - 1 : age
+          today < birthday_this_year ? age - 1 : age
+        end
       end
     end
 
@@ -67,7 +69,7 @@ module FoobaraDemo
 
       possible_input_error :animal, NotACapybara
 
-      depends_on CreateCapybara
+      depends_on CreateCapybara, DomainMappers::MapAnimalToCapybara
 
       def execute
         create_capybara
@@ -76,14 +78,6 @@ module FoobaraDemo
       end
 
       attr_accessor :capybara
-
-      def validate
-        species = animal.species
-
-        unless species == :capybara
-          add_input_error :animal, NotACapybara, animal: animal, species: species
-        end
-      end
 
       def create_capybara
         self.capybara = run_mapped_subcommand!(CreateCapybara, animal)

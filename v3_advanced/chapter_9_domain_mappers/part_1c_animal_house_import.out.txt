@@ -1,12 +1,25 @@
-$ ./part_1c_animal_house_import.rb
-> barbara = FoobaraDemo::CapyCafe::ImportAnimal.run!(animal: {species: :capybara, first_name: "Barbara", last_name: "Doe", birthday: "2000-01-01"})
-==> #<FoobaraDemo::CapyCafe::Capybara:0x00007fe7ed864c78 @attributes={:name=>"Barbara Doe", :age=>24, :id=>1}, @mutable=false>
-> barbara.id
-==> 1
-> barbara.name
-==> "Barbara Doe"
+$ ./animal_house_import.rb
+> create_capybara_inputs = FoobaraDemo::CapyCafe::DomainMappers::MapAnimalToCapybara.map!(species: :capybara, first_name: "Barbara", last_name: "Doe", birthday: "1000-01-01")
+==> {:name=>"Barbara Doe", :age=>1024}
+> barbara = FoobaraDemo::CapyCafe::CreateCapybara.run!(create_capybara_inputs)
+==> <Capybara:2>
 > barbara.age
-==> 24
-> FoobaraDemo::CapyCafe::FindCapybara.run!(id: 1).name
-==> "Barbara Doe"
+==> 1024
+> barbara.id
+==> 2
+
+
+
+
+
+
+
+> basil = FoobaraDemo::CapyCafe::ImportAnimal.run!(animal: { species: :capybara, first_name: "Basil", last_name: "Doe", birthday: "1000-01-01" })
+==> <Capybara:4>
+> FoobaraDemo::CapyCafe::FindCapybara.run!(id: basil).age
+==> 1024
+> FoobaraDemo::CapyCafe::IncrementAge.run!(capybara: basil)
+==> <Capybara:4>
+> FoobaraDemo::CapyCafe::FindCapybara.run!(id: basil).age
+==> 1025
 >
