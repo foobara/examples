@@ -1,0 +1,17 @@
+> outcome = Divide.run(dividend: 49, divisor: 0)
+==> #<Foobara::Outcome:0x00007f030fe3b8b8...
+> outcome.success?
+==> false
+> outcome.errors_sentence
+==> "Cannot divide by zero"
+> outcome.errors_hash
+==>
+{"runtime.divide_by_zero"=>
+  {:key=>"runtime.divide_by_zero",
+   :path=>[],
+   :runtime_path=>[],
+   :category=>:runtime,
+   :symbol=>:divide_by_zero,
+   :message=>"Cannot divide by zero",
+   :context=>{},
+   :is_fatal=>false}}

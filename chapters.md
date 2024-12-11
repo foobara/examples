@@ -51,6 +51,8 @@ Advanced
   a. attributes types w/ processors
     i. :required
     ii. :allow_nil
+11. entities
+    12. associations
 0. creating stand-alone foobara projects
    1. ruby
    2. typescript

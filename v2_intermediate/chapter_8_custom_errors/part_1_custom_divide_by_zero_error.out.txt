@@ -1,3 +1,28 @@
+> outcome = Divide.run(dividend: 49, divisor: 0)
+==> #<Foobara::Outcome:0x00007f504d178e38...
+> outcome.success?
+==> false
+> outcome.errors_hash
+==>
+{"data.divisor.divide_by_zero"=>
+  {:key=>"data.divisor.divide_by_zero",
+   :path=>[:divisor],
+   :runtime_path=>[],
+   :category=>:data,
+   :symbol=>:divide_by_zero,
+   :message=>"Cannot divide by zero",
+   :context=>{},
+   :is_fatal=>false}}
+> outcome.errors_sentence
+==> "Cannot divide by zero"
+
+
+
+> Divide.possible_errors.map(&:key).map(&:to_s).grep /zero/
+==> ["data.divisor.divide_by_zero"]
+
+
+
 $ ./part_1_custom_divide_by_zero_error.rb
 > outcome = Divide.run(dividend: 10, divisor: 0)
 ==> #<Foobara::Outcome:0x00007f700f770e08...
@@ -45,3 +70,23 @@ $ ./part_1_custom_divide_by_zero_error.rb
  "subtract>data.operand2.missing_required_attribute",
  "subtract>data.unexpected_attributes"]
 >
+
+
+> Foobara.manifest[:error][:"Divide::DivideByZeroError"][:parent]
+==> [:command, "Divide"]
+
+
+
+
+
+
+
+
+
+
+
+
+> Foobara.manifest[:command][:Divide][:possible_errors]["data.divisor.divide_by_zero"][:error]
+==> "Divide::DivideByZeroError"
+> Foobara.manifest[:error][:"Divide::DivideByZeroError"][:parent]
+==> [:command, "Divide"]

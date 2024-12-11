@@ -1,3 +1,25 @@
 > Subtract.run!(operand1: 5, operand2: 2)
 ==> 3
+
+
+
+
+
+
+> Subtract.possible_errors.map(&:key).map(&:to_s).sort
+==>
+["add>data.cannot_cast",
+ "add>data.missing_required_attribute",
+ "add>data.operand1.cannot_cast",
+ "add>data.operand1.missing_required_attribute",
+ "add>data.operand2.cannot_cast",
+ "add>data.operand2.missing_required_attribute",
+ "add>data.unexpected_attributes",
+ "data.cannot_cast",
+ "data.missing_required_attribute",
+ "data.operand1.cannot_cast",
+ "data.operand1.missing_required_attribute",
+ "data.operand2.cannot_cast",
+ "data.operand2.missing_required_attribute",
+ "data.unexpected_attributes"]
 >
