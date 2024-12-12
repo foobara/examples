@@ -1,0 +1,47 @@
+╰./part_6_scheduler_command_connector.rb work
+resque-scheduler: [INFO] 2024-12-12T14:47:41-08:00: Starting
+resque-scheduler: [DEBUG] 2024-12-12T14:47:41-08:00: Setting procline "resque-scheduler-4.10.2: Starting"
+resque-scheduler: [INFO] 2024-12-12T14:47:41-08:00: Master scheduler
+resque-scheduler: [DEBUG] 2024-12-12T14:47:41-08:00: Setting procline "resque-scheduler-4.10.2: Master scheduler"
+resque-scheduler: [INFO] 2024-12-12T14:47:41-08:00: Reloading Schedule
+resque-scheduler: [DEBUG] 2024-12-12T14:47:41-08:00: Setting procline "resque-scheduler-4.10.2: Reloading Schedule"
+resque-scheduler: [INFO] 2024-12-12T14:47:41-08:00: Loading Schedule
+resque-scheduler: [DEBUG] 2024-12-12T14:47:41-08:00: Setting procline "resque-scheduler-4.10.2: Loading Schedule"
+resque-scheduler: [INFO] 2024-12-12T14:47:41-08:00: Scheduling IncrementAge
+resque-scheduler: [INFO] 2024-12-12T14:47:41-08:00: Schedules Loaded
+resque-scheduler: [DEBUG] 2024-12-12T14:47:41-08:00: Setting procline "resque-scheduler-4.10.2: Schedules Loaded"
+
+
+resque-scheduler: [INFO] 2024-12-12T14:47:45-08:00: queueing Foobara::CommandConnectors::ResqueConnector::CommandJob (IncrementAge)
+*** got: (Job{general} | Foobara::CommandConnectors::ResqueConnector::CommandJob | [{"command_name"=>"IncrementAge", "inputs"=>{"capybara"=>1}}])
+*** done: (Job{general} | Foobara::CommandConnectors::ResqueConnector::CommandJob | [{"command_name"=>"IncrementAge", "inputs"=>{"capybara"=>1}}])
+resque-scheduler: [INFO] 2024-12-12T14:47:50-08:00: queueing Foobara::CommandConnectors::ResqueConnector::CommandJob (IncrementAge)
+*** got: (Job{general} | Foobara::CommandConnectors::ResqueConnector::CommandJob | [{"command_name"=>"IncrementAge", "inputs"=>{"capybara"=>1}}])
+*** done: (Job{general} | Foobara::CommandConnectors::ResqueConnector::CommandJob | [{"command_name"=>"IncrementAge", "inputs"=>{"capybara"=>1}}])
+resque-scheduler: [INFO] 2024-12-12T14:47:55-08:00: queueing Foobara::CommandConnectors::ResqueConnector::CommandJob (IncrementAge)
+*** got: (Job{general} | Foobara::CommandConnectors::ResqueConnector::CommandJob | [{"command_name"=>"IncrementAge", "inputs"=>{"capybara"=>1}}])
+*** done: (Job{general} | Foobara::CommandConnectors::ResqueConnector::CommandJob | [{"command_name"=>"IncrementAge", "inputs"=>{"capybara"=>1}}])
+
+
+resque-scheduler: [INFO] 2024-12-12T14:47:45-08:00: queueing Foobara::CommandConnectors::ResqueConnector::CommandJob (IncrementAge)
+*** got: (Job{general} | Foobara::CommandConnectors::ResqueConnector::CommandJob | [{"command_name"=>"IncrementAge", "inputs"=>{"capybara"=>1}}])
+*** done: (Job{general} | Foobara::CommandConnectors::ResqueConnector::CommandJob | [{"command_name"=>"IncrementAge", "inputs"=>{"capybara"=>1}}])
+resque-scheduler: [INFO] 2024-12-12T14:47:50-08:00: queueing Foobara::CommandConnectors::ResqueConnector::CommandJob (IncrementAge)
+*** got: (Job{general} | Foobara::CommandConnectors::ResqueConnector::CommandJob | [{"command_name"=>"IncrementAge", "inputs"=>{"capybara"=>1}}])
+*** done: (Job{general} | Foobara::CommandConnectors::ResqueConnector::CommandJob | [{"command_name"=>"IncrementAge", "inputs"=>{"capybara"=>1}}])
+resque-scheduler: [INFO] 2024-12-12T14:47:55-08:00: queueing Foobara::CommandConnectors::ResqueConnector::CommandJob (IncrementAge)
+*** got: (Job{general} | Foobara::CommandConnectors::ResqueConnector::CommandJob | [{"command_name"=>"IncrementAge", "inputs"=>{"capybara"=>1}}])
+*** done: (Job{general} | Foobara::CommandConnectors::ResqueConnector::CommandJob | [{"command_name"=>"IncrementAge", "inputs"=>{"capybara"=>1}}])
+
+
+
+
+╰./part_6_scheduler_command_connector.rb FindCapybara --id 1 | grep age
+age: 100
+
+
+
+
+
+╰./part_6_scheduler_command_connector.rb FindCapybara --id 1 | grep age
+age: 104

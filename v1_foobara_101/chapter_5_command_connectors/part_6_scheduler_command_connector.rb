@@ -84,6 +84,24 @@ async_connector = Foobara::CommandConnectors::ResqueConnector.new
 
 async_connector.connect(IncrementAge)
 
+require "foobara/resque_scheduler_connector"
+
+cron_connector = Foobara::CommandConnectors::ResqueSchedulerConnector.new
+
+cron_connector.cron(
+  [
+    #   ╭─Second (0-59)
+    #   │ ╭─Minute (0-59)
+    #   │ │ ╭─Hour (0-23)
+    #   │ │ │ ╭─Day-of-Month (1-31)
+    #   │ │ │ │ ╭─Month (1-12)
+    #   │ │ │ │ │ ╭─Day-of-Week (0-6)
+    #   │ │ │ │ │ │ ╭─Timezone
+    #   │ │ │ │ │ │ │   ╭─Command,      ╭─Inputs
+    ["*/5 * * * * *  ", IncrementAge, { capybara: 1 }]
+  ]
+)
+
 require "foobara/sh_cli_connector"
 
 cli_connector = Foobara::CommandConnectors::ShCliConnector.new
@@ -92,4 +110,15 @@ cli_connector.connect(IncrementAge)
 cli_connector.connect(IncrementAgeAsync)
 cli_connector.connect(FindCapybara)
 
-cli_connector.run(ARGV)
+if ARGV == ["work"]
+  Thread.new do
+    Resque::Scheduler.verbose = true
+    Resque::Scheduler.run
+  end
+
+  worker = Resque::Worker.new("*")
+  worker.verbose = true
+  worker.work(1)
+else
+  cli_connector.run(ARGV)
+end
