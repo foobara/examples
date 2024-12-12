@@ -31,6 +31,27 @@ module FoobaraDemo
 
     module DomainMappers
       class MapAnimalToCapybara < Foobara::DomainMapper
+        class NotACapybara < Foobara::RuntimeError
+          context species: :symbol, animal: AnimalHouse::Animal
+
+          attr_accessor :animal
+
+          def initialize(animal)
+            self.animal = animal
+            super()
+          end
+
+          def context
+            { animal:, species: animal.species }
+          end
+
+          def message
+            "Can only import a capybara not a #{animal.species}"
+          end
+        end
+
+        possible_error NotACapybara
+
         from AnimalHouse::Animal
         to CreateCapybara
 
@@ -39,6 +60,14 @@ module FoobaraDemo
             name: "#{first_name} #{last_name}",
             age: birthday_to_age
           }
+        end
+
+        def validate
+          species = animal.species
+
+          unless species == :capybara
+            add_error NotACapybara.new(animal)
+          end
         end
 
         alias animal from
@@ -56,18 +85,8 @@ module FoobaraDemo
     end
 
     class ImportAnimal < Foobara::Command
-      class NotACapybara < Foobara::DataError
-        context species: :symbol, animal: AnimalHouse::Animal
-
-        def message
-          "Can only import a capybara not a #{species}"
-        end
-      end
-
       inputs animal: AnimalHouse::Animal
       result Capybara
-
-      possible_input_error :animal, NotACapybara
 
       depends_on CreateCapybara, DomainMappers::MapAnimalToCapybara
 
