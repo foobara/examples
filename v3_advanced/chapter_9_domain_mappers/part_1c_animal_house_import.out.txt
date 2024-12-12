@@ -25,12 +25,15 @@ $ ./animal_house_import.rb
 >
 
 
+
+
+
+> FoobaraDemo::CapyCafe::ImportAnimal.possible_errors.map(&:key).map(&:to_s).grep /not_a/
+==> ["foobara_demo::capy_cafe::domain_mappers::map_animal_to_capybara>runtime.not_a_capybara"]
+
 > outcome = FoobaraDemo::CapyCafe::ImportAnimal.run(animal: { species: :tartigrade, first_name: "Basil", last_name: "Doe", birthday: "1000-01-01" })
 ==>
 #<Foobara::Outcome:0x00007fc310fb2c98
 ...
 > outcome.errors_sentence
 ==> "Can only import a capybara not a tartigrade"
-> FoobaraDemo::CapyCafe::ImportAnimal.possible_errors.map(&:key).map(&:to_s).grep /not_a/
-==> ["foobara_demo::capy_cafe::domain_mappers::map_animal_to_capybara>runtime.not_a_capybara"]
->

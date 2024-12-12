@@ -1,6 +1,10 @@
+def print_types_tree(types = Foobara.foobara_all_type)
+  Foobara::Util.print_tree(types, to_parent: :base_type, to_name: :name)
+end
+
 def print_type_inheritance(type)
   types = Enumerator.produce(type, &:base_type).take_while { |t| !t.nil? }
-  Foobara::Util.print_tree(types, to_parent: :base_type, to_name: :name)
+  print_types_tree(types)
 end
 
 

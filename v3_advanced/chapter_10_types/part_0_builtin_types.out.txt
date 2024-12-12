@@ -1,0 +1,85 @@
+def print_types_tree(types = Foobara::Namespace.global.foobara_all_type)
+  Foobara::Util.print_tree(types, to_parent: :base_type, to_name: :full_type_name)
+end
+
+def print_type_inheritance(type)
+  types = Enumerator.produce(type, &:base_type).take_while { |t| !t.nil? }
+  print_types_tree(types)
+end
+
+print_types_tree
+
+
+
+
+
+
+Foobara::Util.print_tree(Foobara::Namespace.global.foobara_all_type, to_parent: :base_type, to_name: :full_type_name)
+
+> Foobara::Util.print_tree(Foobara::Namespace.global.foobara_all_type, to_parent: :base_type, to_name: :full_type_name)
+╭──────╮
+│ duck │
+╰──┬───╯
+   │ ╭─────────────╮
+   ├─┤ atomic_duck │
+   │ ╰──────┬──────╯
+   │        │ ╭─────────╮
+   │        ├─┤ boolean │
+   │        │ ╰─────────╯
+   │        │ ╭──────╮
+   │        ├─┤ date │
+   │        │ ╰──────╯
+   │        │ ╭──────────╮
+   │        ├─┤ datetime │
+   │        │ ╰──────────╯
+   │        │ ╭───────╮
+   │        ├─┤ model │
+   │        │ ╰───┬───╯
+   │        │     │ ╭──────────────────────────────────╮
+   │        │     ├─┤ FoobaraDemo::AnimalHouse::Animal │
+   │        │     │ ╰──────────────────────────────────╯
+   │        │     │ ╭─────────────────╮
+   │        │     └─┤ detached_entity │
+   │        │       ╰────────┬────────╯
+   │        │                │ ╭─────────────────────────────────╮
+   │        │                ├─┤ FoobaraDemo::CapyCafe::Capybara │
+   │        │                │ ╰─────────────────────────────────╯
+   │        │                │ ╭────────╮
+   │        │                └─┤ entity │
+   │        │                  ╰────────╯
+   │        │ ╭────────╮
+   │        ├─┤ number │
+   │        │ ╰───┬────╯
+   │        │     │ ╭─────────────╮
+   │        │     ├─┤ big_decimal │
+   │        │     │ ╰─────────────╯
+   │        │     │ ╭───────╮
+   │        │     ├─┤ float │
+   │        │     │ ╰───────╯
+   │        │     │ ╭─────────╮
+   │        │     └─┤ integer │
+   │        │       ╰─────────╯
+   │        │ ╭────────╮
+   │        ├─┤ string │
+   │        │ ╰───┬────╯
+   │        │     │ ╭───────╮
+   │        │     └─┤ email │
+   │        │       ╰───────╯
+   │        │ ╭────────╮
+   │        └─┤ symbol │
+   │          ╰────────╯
+   │ ╭──────────╮
+   └─┤ duckture │
+     ╰────┬─────╯
+          │ ╭───────╮
+          ├─┤ array │
+          │ ╰───┬───╯
+          │     │ ╭───────╮
+          │     └─┤ tuple │
+          │       ╰───────╯
+          │ ╭───────────────────╮
+          └─┤ associative_array │
+            ╰─────────┬─────────╯
+                      │ ╭────────────╮
+                      └─┤ attributes │
+                        ╰────────────╯
