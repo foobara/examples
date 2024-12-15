@@ -13,14 +13,11 @@ end
 module FoobaraDemo
   module CapybaraDivingCompetition
     foobara_domain!
-  end
-end
 
-module FoobaraDemo
-  module CapybaraDivingCompetition
     class Judge < Foobara::Model
       attributes do
         email :string, :downcase, matches: /\A[^@]+@[^@]+\.[^@]+\z/
+        favorite_diver CapyCafe::Capybara, :allow_nil
       end
     end
   end

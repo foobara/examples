@@ -22,7 +22,8 @@ module FoobaraDemo
       email_address_type = domain.foobara_type_from_declaration(:string, :downcase, matches: /\A[^@]+@[^@]+\.[^@]+\z/)
 
       attributes do
-        email email_address_type
+        email email_address_type, :required
+        favorite_diver CapyCafe::Capybara, :allow_nil
       end
     end
   end
