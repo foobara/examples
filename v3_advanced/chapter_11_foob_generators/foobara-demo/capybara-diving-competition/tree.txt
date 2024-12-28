@@ -1,0 +1,69 @@
+.
+├── bin
+│   ├── capy-cafe
+│   ├── console
+│   └── setup
+├── boot
+│   ├── config.rb
+│   ├── finish.rb
+│   └── start.rb
+├── .bundle
+│   └── config
+├── .github
+│   └── workflows
+│       └── ci.yml
+├── lib
+│   └── foobara_demo
+│       └── capybara_diving_competition.rb
+├── spec
+│   ├── foobara_demo
+│   │   ├── capy_cafe
+│   │   │   ├── create_capybara_spec.rb
+│   │   │   ├── find_capybara_spec.rb
+│   │   │   └── increment_age_spec.rb
+│   │   ├── integer_math
+│   │   │   ├── add_spec.rb
+│   │   │   ├── divide_spec.rb
+│   │   │   └── subtract_spec.rb
+│   │   └── capybara_diving_competition_spec.rb
+│   ├── support
+│   │   ├── rubyprof.rb
+│   │   ├── simplecov.rb
+│   │   ├── term_trap.rb
+│   │   └── vcr.rb
+│   └── spec_helper.rb
+├── src
+│   └── foobara_demo
+│       ├── capybara_diving_competition
+│       │   └── types
+│       │       ├── email_address.rb
+│       │       └── judge.rb
+│       ├── capy_cafe
+│       │   ├── types
+│       │   │   └── capybara.rb
+│       │   ├── create_capybara.rb
+│       │   ├── find_capybara.rb
+│       │   └── increment_age.rb
+│       ├── integer_math
+│       │   ├── add.rb
+│       │   ├── divide.rb
+│       │   └── subtract.rb
+│       ├── capybara_diving_competition.rb
+│       ├── capy_cafe.rb
+│       └── integer_math.rb
+├── boot.rb
+├── CHANGELOG.md
+├── foobara-demo-capybara-diving-competition.gemspec
+├── Gemfile
+├── Gemfile.lock
+├── .gitignore
+├── Guardfile
+├── Rakefile
+├── README.md
+├── .rspec
+├── .rubocop.yml
+├── .ruby-version
+├── tree.txt
+└── version.rb
+
+20 directories, 47 files
