@@ -19,7 +19,11 @@ end
 module FoobaraDemo
   module CapybaraDivingCompetition
     class Judge < Foobara::Model
-      email_address_type = domain.foobara_type_from_declaration(:string, :downcase, matches: /\A[^@]+@[^@]+\.[^@]+\z/)
+      email_address_type = domain.foobara_type_from_declaration(
+        :string,
+        :downcase,
+        matches: /\A[^@]+@[^@]+\.[^@]+\z/
+      )
 
       attributes do
         email email_address_type, :required
