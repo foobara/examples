@@ -3,12 +3,20 @@
 require "foobara"
 
 class Greet < Foobara::Command
-  inputs { who :string, default: "World" }
+  inputs do
+    who :string, default: "World"
+  end
   result :string
 
   def execute
-    "Hello, #{who}!"
+    build_greeting
+
+    greeting
   end
+
+  attr_accessor :greeting
+
+  def build_greeting = self.greeting = "Hello, #{who}!"
 end
 
 puts Greet.run!
