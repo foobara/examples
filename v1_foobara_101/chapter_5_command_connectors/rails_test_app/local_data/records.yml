@@ -1,8 +1,0 @@
----
-capybara:
-  sequence: 2
-  records:
-    1:
-      :name: foo
-      :age: 400
-      :id: 1
