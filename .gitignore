@@ -5,3 +5,18 @@
 /.idea/
 
 .byebug_history
+
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+
+/.rspec_status
+/.byebug_history
+
+.env.*.local
+.env.local
