@@ -97,5 +97,10 @@ if ARGV == ["work"]
   worker.verbose = true
   worker.work(1)
 else
-  cli_connector.run(ARGV)
+  # cli_connector.run
+  require "foobara/rack_connector"
+
+  http_connector = Foobara::CommandConnectors::Http::Rack.new
+  http_connector.connect(IncrementAgeAsync)
+  http_connector.run_puma
 end

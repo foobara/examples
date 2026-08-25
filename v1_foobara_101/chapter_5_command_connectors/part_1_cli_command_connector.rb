@@ -1,11 +1,9 @@
 #!/usr/bin/env ruby
 
-require "foobara"
 require "foobara/local_files_crud_driver"
 require "foobara/sh_cli_connector"
 
-crud_driver = Foobara::LocalFilesCrudDriver.new
-Foobara::Persistence.default_crud_driver = crud_driver
+Foobara::Persistence.default_crud_driver = Foobara::LocalFilesCrudDriver.new
 
 class Capybara < Foobara::Entity
   attributes do
@@ -85,4 +83,4 @@ command_connector.connect(CreateCapybara)
 command_connector.connect(IncrementAge)
 command_connector.connect(FindCapybara)
 
-command_connector.run(ARGV)
+command_connector.run

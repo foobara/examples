@@ -1,4 +1,6 @@
 require "resque"
 require 'resque/tasks'
+require "resque/scheduler/tasks"
 
-require_relative "part_5c_async_command_connector"
+# require_relative "part_5c_async_command_connector"
+require_relative "part_6b_scheduler_command_connector"

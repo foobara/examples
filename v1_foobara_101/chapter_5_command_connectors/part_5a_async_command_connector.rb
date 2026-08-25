@@ -92,4 +92,4 @@ cli_connector.connect(IncrementAge)
 cli_connector.connect(IncrementAgeAsync)
 cli_connector.connect(FindCapybara)
 
-cli_connector.run(ARGV)
+cli_connector.run

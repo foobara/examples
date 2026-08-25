@@ -3,7 +3,6 @@
 require "bundler/setup"
 
 require "foobara/rack_connector"
-require "foobara"
 
 class Add < Foobara::Command
   inputs do
