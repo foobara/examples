@@ -12,7 +12,6 @@ cron_connector.cron(
     #   │ │ │ │ │ ╭─Day-of-Week (0-6)
     #   │ │ │ │ │ │ ╭─Timezone
     #   │ │ │ │ │ │ │   ╭─Command,      ╭─Inputs
-
     ["*/5 * * * * *  ", IncrementAge, { capybara: 1 }]
   ]
 )

@@ -1,5 +1,18 @@
 #!/usr/bin/env ruby
 
+# To run this, in one terminal run:
+#
+# ./part_6_scheduler_command_connector.rb work
+#
+# which fires up a worker
+#
+# And in another terminal run:
+#
+# ./part_6_scheduler_command_connector.rb FindCapybara --id 1 | grep age
+#
+# which will check the age of the first Capybara. If you run this over time you will see it change
+# as the scheduled command runs.
+
 require "foobara"
 require "foobara/local_files_crud_driver"
 
